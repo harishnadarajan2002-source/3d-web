@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ApexAuthority | Turn Your LinkedIn From Invisible to Influential</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #0a66c2;
+      --accent: #004e99;
+      --accent-2: #006c49;
+      --ink: #131b2e;
+      --body: #414752;
+      --bg: #faf8ff;
+      --surface: #f2f3ff;
+      --tint: #eaedff;
+      --mint: #6cf8bb;
+      --mint-ink: #00714d;
+      --footer: #283044;
+      --footer-ink: #eef0ff;
+      --muted: #9ca3af;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(19, 27, 46, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--body);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3 { font-family: "Plus Jakarta Sans", "Inter", sans-serif; color: var(--ink); }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Header ---------- */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(250, 248, 255, 0.8);
+      backdrop-filter: blur(48px);
+      -webkit-backdrop-filter: blur(48px);
+      box-shadow: 0 1px 8px rgba(19, 27, 46, 0.06);
+    }
+    .nav {
+      height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .brand { display: flex; align-items: center; gap: 8px; font-family: "Plus Jakarta Sans", sans-serif; font-weight: 600; font-size: 20px; color: var(--ink); letter-spacing: -0.5px; }
+    .brand-mark { width: 32px; height: 32px; border-radius: 8px; background: var(--accent); display: grid; place-items: center; }
+    .brand-mark span { width: 11px; height: 11px; background: #fff; border-radius: 2px; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 600; color: var(--body); }
+    .nav-links a.active { color: var(--accent); font-size: 16px; }
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+    .btn-small {
+      background: var(--primary); color: #fff; font-size: 14px; font-weight: 600;
+      padding: 9px 16px; border-radius: 8px; box-shadow: 0 2px 4px rgba(10, 102, 194, 0.25);
+    }
+    .avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; }
+    .avatar span { width: 12px; height: 12px; border: 2px solid #fff; border-radius: 50%; }
+
+    /* ---------- Shared ---------- */
+    section { padding: 96px 0; }
+    .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.44px; text-transform: uppercase; color: var(--accent); }
+    .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 48px; }
+    .section-head h2 { font-size: 40px; font-weight: 700; letter-spacing: -0.8px; line-height: 1.2; margin-top: 8px; }
+    .section-head .sub { font-family: "Plus Jakarta Sans", sans-serif; font-size: 20px; font-weight: 600; color: var(--ink); letter-spacing: -0.2px; }
+    .card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--primary); color: #fff; font-size: 14px; font-weight: 600;
+      padding: 16px 24px; border-radius: 8px; border: none; cursor: pointer;
+      box-shadow: 0 2px 6px rgba(10, 102, 194, 0.3); transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 14px rgba(10, 102, 194, 0.3); }
+    .btn-primary:disabled { opacity: .7; cursor: not-allowed; transform: none; }
+    .arrow { width: 12px; height: 12px; }
+
+    /* ---------- Hero ---------- */
+    .hero { padding-top: 96px; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px; background: var(--mint); color: var(--mint-ink);
+      font-size: 12px; font-weight: 600; letter-spacing: 0.24px; padding: 6px 16px; border-radius: 9999px;
+    }
+    .chip svg { width: 13px; height: 8px; }
+    .hero h1 { font-size: 56px; font-weight: 700; letter-spacing: -1.4px; line-height: 1.14; margin-top: 24px; }
+    .hero p.lead { font-size: 18px; line-height: 28px; margin-top: 24px; max-width: 672px; }
+    .hero p.sub { font-size: 16px; line-height: 24px; color: var(--ink); margin-top: 24px; max-width: 576px; }
+    .hero-ctas { display: flex; gap: 16px; margin-top: 32px; flex-wrap: wrap; }
+    .btn-ghost {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: #fff; color: var(--ink); font-size: 14px; font-weight: 600;
+      padding: 16px 24px; border-radius: 8px; box-shadow: 0 2px 6px rgba(19, 27, 46, 0.08);
+    }
+    .hero-visual { position: relative; }
+    .hero-photo {
+      border-radius: var(--radius); height: 420px; overflow: hidden; position: relative;
+      background: linear-gradient(160deg, #c9d4ff 0%, #eaedff 45%, #ffffff 100%);
+      box-shadow: 0 10px 25px rgba(19, 27, 46, 0.1), 0 4px 10px rgba(19, 27, 46, 0.06);
+      display: grid; place-items: center; color: var(--accent); font-size: 13px; text-align: center; padding: 24px;
+    }
+    .hero-photo small { opacity: .7; }
+    .stat-card {
+      position: absolute; left: -32px; bottom: 32px; width: 196px; background: #fff; border-radius: var(--radius);
+      padding: 20px; box-shadow: 0 10px 25px rgba(19, 27, 46, 0.1), 0 4px 10px rgba(19, 27, 46, 0.06);
+    }
+    .stat-top { display: flex; justify-content: space-between; align-items: center; }
+    .stat-top .label { font-size: 11px; font-weight: 500; letter-spacing: 0.44px; color: var(--body); text-transform: uppercase; }
+    .stat-top .pill { background: var(--mint); color: var(--mint-ink); font-size: 11px; font-weight: 500; padding: 2px 10px; border-radius: 9999px; }
+    .stat-card svg { width: 100%; height: 48px; margin-top: 16px; }
+
+    /* ---------- Achievements ---------- */
+    .achievements { background: var(--surface); }
+    .ach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .ach-card { padding: 24px; box-shadow: 0 2px 8px rgba(19, 27, 46, 0.06); display: flex; flex-direction: column; gap: 16px; min-height: 160px; }
+    .ach-card.wide { grid-column: span 1; }
+    .ach-icon { width: 40px; height: 40px; border-radius: 8px; background: var(--mint); display: grid; place-items: center; }
+    .ach-icon svg { width: 18px; height: 18px; stroke: var(--mint-ink); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .ach-card p { font-size: 18px; line-height: 28px; color: var(--ink); }
+    .ach-row { grid-column: span 1; }
+    .ach-row-wrap { display: contents; }
+    .ach-row .ach-card { flex-direction: row; align-items: center; gap: 16px; min-height: 88px; }
+    .ach-row .ach-card p { font-size: 18px; }
+    .ach-wide-2 { grid-column: span 1; }
+
+    /* ---------- Lead form ---------- */
+    .lead-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 64px; align-items: start; }
+    .lead-copy .eyebrow { display: block; }
+    .lead-copy h2 { font-size: 40px; font-weight: 700; letter-spacing: -0.8px; line-height: 1.2; margin-top: 16px; }
+    .lead-copy .intro { font-size: 18px; line-height: 28px; margin-top: 24px; }
+    .lead-photo {
+      margin-top: 32px; height: 224px; border-radius: var(--radius); overflow: hidden;
+      background: linear-gradient(135deg, #eaedff 0%, #c9d4ff 60%, #f2f3ff 100%);
+      box-shadow: 0 10px 25px rgba(19, 27, 46, 0.1), 0 4px 10px rgba(19, 27, 46, 0.06);
+      display: grid; place-items: center; color: var(--accent); font-size: 13px;
+    }
+    .lead-photo small { opacity: .7; }
+    .form-card { padding: 40px; box-shadow: 0 10px 25px rgba(19, 27, 46, 0.1), 0 4px 10px rgba(19, 27, 46, 0.06); }
+    form { display: flex; flex-direction: column; gap: 24px; }
+    .field { display: flex; flex-direction: column; gap: 4px; }
+    .field label { font-size: 14px; font-weight: 600; color: var(--ink); }
+    .field input {
+      width: 100%; background: var(--surface); border: 1px solid transparent; border-radius: 8px;
+      padding: 14px 16px; font: inherit; font-size: 16px; color: var(--ink); outline: none;
+      transition: border-color .15s ease, background .15s ease;
+    }
+    .field input::placeholder { color: var(--muted); }
+    .field input:focus { border-color: var(--primary); background: #fff; }
+    .form-submit { width: 100%; margin-top: 4px; }
+    .form-note { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--body); }
+    .form-note svg { width: 11px; height: 14px; stroke: var(--body); fill: none; stroke-width: 2; }
+    .form-msg { font-size: 14px; min-height: 20px; text-align: center; }
+    .form-msg.ok { color: var(--mint-ink); font-weight: 600; }
+    .form-msg.err { color: #b42318; font-weight: 600; }
+
+    /* ---------- Audit ---------- */
+    .audit { background: var(--surface); }
+    .audit-card {
+      position: relative; overflow: hidden; background: #fff; border-radius: var(--radius); padding: 48px;
+      box-shadow: 0 10px 25px rgba(19, 27, 46, 0.1), 0 4px 10px rgba(19, 27, 46, 0.06);
+    }
+    .audit-card::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(135deg, rgba(0, 78, 153, 0.07), rgba(0, 108, 73, 0.07));
+    }
+    .audit-inner { position: relative; display: flex; flex-direction: column; gap: 24px; }
+    .audit-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .badge { background: var(--accent); color: #fff; font-size: 12px; font-weight: 600; letter-spacing: 0.24px; padding: 6px 16px; border-radius: 9999px; }
+    .audit h2 { font-size: 40px; font-weight: 700; letter-spacing: -0.8px; line-height: 1.2; }
+    .audit .intro { font-size: 18px; line-height: 28px; max-width: 672px; }
+    .audit-items { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+    .audit-item {
+      display: flex; align-items: center; gap: 16px; background: var(--surface); border-radius: 8px; padding: 16px;
+      font-size: 16px; color: var(--ink);
+    }
+    .audit-item svg { width: 18px; height: 18px; stroke: var(--accent-2); fill: none; stroke-width: 2.2; flex-shrink: 0; }
+    .audit-foot { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 8px; }
+    .audit-foot p { font-size: 16px; line-height: 24px; font-style: italic; max-width: 512px; }
+    .btn-audit { min-width: 208px; }
+
+    /* ---------- Reviews ---------- */
+    .reviews-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .review { padding: 32px; display: flex; flex-direction: column; gap: 24px; }
+    .stars { color: var(--accent); font-size: 14px; letter-spacing: 3px; }
+    .review blockquote { font-size: 18px; line-height: 28px; color: var(--ink); }
+
+    /* ---------- FAQ ---------- */
+    .faq { text-align: center; }
+    .faq .section-head { flex-direction: column; align-items: center; margin-bottom: 48px; }
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; text-align: left; }
+    .faq-item { background: #fff; border-radius: var(--radius); padding: 24px; box-shadow: 0 4px 16px rgba(19, 27, 46, 0.06); }
+    .faq-item summary {
+      list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      font-family: "Plus Jakarta Sans", sans-serif; font-size: 20px; font-weight: 600; color: var(--ink); letter-spacing: -0.2px;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: ""; width: 8px; height: 8px; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent);
+      transform: rotate(45deg); transition: transform .2s ease; flex-shrink: 0; margin-top: -4px;
+    }
+    .faq-item[open] summary::after { transform: rotate(-135deg); margin-top: 4px; }
+    .faq-item p { font-size: 16px; line-height: 24px; margin-top: 16px; }
+
+    /* ---------- Footer ---------- */
+    .cta-footer { background: var(--footer); color: var(--footer-ink); padding: 48px 0; }
+    .cta-footer-row { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .cta-footer h3 { color: var(--footer-ink); font-size: 20px; font-weight: 600; letter-spacing: -0.2px; }
+    .cta-footer p { font-size: 14px; margin-top: 4px; color: var(--footer-ink); }
+    .foot-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .foot-links a { font-size: 14px; font-weight: 600; color: var(--footer-ink); }
+    .cta-footer .copy { margin-top: 32px; font-size: 14px; color: var(--footer-ink); }
+    .site-foot { background: var(--surface); padding: 24px 0; }
+    .site-foot-row { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .site-foot .brand { font-size: 14px; }
+    .site-foot .brand-mark { width: 24px; height: 24px; border-radius: 4px; }
+    .site-foot .brand-mark span { width: 9px; height: 9px; }
+    .site-foot .copy-line { font-size: 14px; color: var(--body); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1024px) {
+      .hero-grid, .lead-grid { grid-template-columns: 1fr; gap: 48px; }
+      .ach-grid { grid-template-columns: 1fr 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .stat-card { left: 16px; }
+    }
+    @media (max-width: 768px) {
+      section { padding: 64px 0; }
+      .hero { padding-top: 48px; }
+      .hero h1 { font-size: 40px; letter-spacing: -1px; }
+      .section-head h2, .lead-copy h2, .audit h2 { font-size: 32px; }
+      .nav-links { display: none; }
+      .ach-grid, .audit-items { grid-template-columns: 1fr; }
+      .form-card, .audit-card { padding: 24px; }
+      .hero-photo { height: 320px; }
+      .btn-audit, .hero-ctas .btn-primary, .hero-ctas .btn-ghost { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ============ HEADER ============ -->
+  <header id="top">
+    <div class="wrap nav">
+      <a class="brand" href="#top">
+        <span class="brand-mark"><span></span></span>
+        ApexAuthority
+      </a>
+      <nav class="nav-links">
+        <a class="active" href="#top">Home</a>
+        <a href="#achievements">Services</a>
+        <a href="#audit">Book Audit</a>
+        <a href="#lead-form">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <a class="btn-small" href="#audit">Get Your Profile Audit</a>
+        <span class="avatar"><span></span></span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ 1. HERO ============ -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="chip">
+            <svg viewBox="0 0 13 8" fill="none"><path d="M1 1.5L6.5 6.5L12 1.5" stroke="#00714d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            0 to Hero LinkedIn Growth
+          </span>
+          <h1>Turn Your LinkedIn From<br />Invisible to Influential</h1>
+          <p class="lead">We don't just "optimize profiles." We build your personal brand from scratch — with strategy, content, and consistency that actually gets you seen.</p>
+          <p class="sub">From 0 to hero on LinkedIn — without confusion, guesswork, or wasting months figuring it out alone.</p>
+          <div class="hero-ctas">
+            <a class="btn-primary" href="#lead-form">
+              Get Your Profile Audit
+              <svg class="arrow" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn-ghost" href="#achievements">Start Growing Today</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-photo">
+            <div>
+              <small>Replace with hero photo (exported from Figma)</small>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-top">
+              <span class="label">Organic reach</span>
+              <span class="pill">+140%</span>
+            </div>
+            <svg viewBox="0 0 156 48" preserveAspectRatio="none" fill="none">
+              <path d="M3 40 L40 34 L72 36 L104 20 L130 14 L153 4" stroke="#004e99" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M150 0 L156 4 L150 8" fill="#004e99"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2. ACHIEVEMENTS ============ -->
+    <section class="achievements" id="achievements">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">01 / Verified Impact</span>
+            <h2>Real Growth. Real Results.</h2>
+          </div>
+          <p class="sub">This isn't luck. It's a system that works.</p>
+        </div>
+
+        <div class="ach-grid">
+          <div class="card ach-card">
+            <div class="ach-icon">
+              <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.4 3.2-5.5 6.5-5.5s5.9 2.1 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 010 7M18.5 14.8c1.3.8 2.1 2.6 2.4 5.2"/></svg>
+            </div>
+            <p>Helped 100+ professionals build authority on LinkedIn</p>
+          </div>
+          <div class="card ach-card">
+            <div class="ach-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><path d="M8 15l4-4 3 3 5-6"/></svg>
+            </div>
+            <p>Generated consistent inbound leads through content</p>
+          </div>
+          <div class="card ach-card">
+            <div class="ach-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3.1-5.4 3.1 1.2-6-4.5-4.2 6.1-.7z"/></svg>
+            </div>
+            <p>Built personal brands from absolute zero</p>
+          </div>
+
+          <div class="card ach-card" style="flex-direction:row; align-items:center; min-height:88px; grid-column: span 1.5;">
+            <div class="ach-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 2"/></svg>
+            </div>
+            <p>Content that reaches thousands organically</p>
+          </div>
+          <div class="card ach-card" style="flex-direction:row; align-items:center; min-height:88px; grid-column: span 2;">
+            <div class="ach-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 6h16v10H8l-4 4z"/></svg>
+            </div>
+            <p>Profiles that convert views into opportunities</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. LEAD FORM ============ -->
+    <section id="lead-form">
+      <div class="wrap lead-grid">
+        <div class="lead-copy">
+          <span class="eyebrow">02 / Strategy Session</span>
+          <h2>Let's Build Your LinkedIn<br />Presence Together</h2>
+          <p class="intro">Tell us a bit about you — and we'll show you exactly how to grow.</p>
+          <div class="lead-photo">
+            <div><small>Replace with lead-section photo (exported from Figma)</small></div>
+          </div>
+        </div>
+
+        <div class="card form-card">
+          <form id="leadForm" novalidate>
+            <div class="field">
+              <label for="fieldName">Name</label>
+              <input id="fieldName" type="text" placeholder="Enter your full name" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="fieldEmail">Email</label>
+              <input id="fieldEmail" type="email" placeholder="you@company.com" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="fieldPhone">Phone</label>
+              <input id="fieldPhone" type="tel" placeholder="+91 98765 43210" autocomplete="tel" required />
+            </div>
+            <button id="submitBtn" class="btn-primary form-submit" type="submit">
+              Get My Growth Plan
+              <svg class="arrow" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <p class="form-msg" id="formMsg" aria-live="polite"></p>
+            <div class="form-note">
+              <svg viewBox="0 0 11 14"><rect x="1" y="6" width="9" height="7" rx="1.5"/><path d="M3 6V4a2.5 2.5 0 015 0v2"/></svg>
+              No spam. No fluff. Just actionable clarity.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. AUDIT - RUPEE 1 ============ -->
+    <section class="audit" id="audit">
+      <div class="wrap">
+        <div class="audit-card">
+          <div class="audit-inner">
+            <div class="audit-top">
+              <span class="badge">₹1 Session</span>
+              <span class="eyebrow">03 / Deep-Dive Audit</span>
+            </div>
+            <h2>Get a Complete LinkedIn Audit for Just Rupee 1</h2>
+            <p class="intro">Not a sales call. A real breakdown of what's working, what's not, and what to fix.</p>
+
+            <div class="audit-items">
+              <div class="audit-item">
+                <svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.5 3.5 7.5-8"/></svg>
+                Profile review (headline, banner, positioning)
+              </div>
+              <div class="audit-item">
+                <svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.5 3.5 7.5-8"/></svg>
+                Content gap analysis
+              </div>
+              <div class="audit-item">
+                <svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.5 3.5 7.5-8"/></svg>
+                Personal brand direction
+              </div>
+              <div class="audit-item">
+                <svg viewBox="0 0 18 18"><path d="M3.5 9.5l3.5 3.5 7.5-8"/></svg>
+                Clear action steps to improve visibility
+              </div>
+            </div>
+
+            <div class="audit-foot">
+              <p>Why Rupee 1? Because once you see the value, you'll know what to do next.</p>
+              <a class="btn-primary btn-audit" href="https://payments.cashfree.com/forms/getaudit" target="_blank" rel="noopener noreferrer">
+                Book My Audit Now
+                <svg class="arrow" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. REVIEWS ============ -->
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">04 / Client Feedback</span>
+            <h2>What Our Clients Say</h2>
+          </div>
+          <p class="sub">Results speak louder than promises.</p>
+        </div>
+
+        <div class="reviews-grid">
+          <div class="card review">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"I had zero presence before this. Within weeks, I started getting inbound messages and profile views."</blockquote>
+          </div>
+          <div class="card review">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"The clarity I got here saved me months of trial and error."</blockquote>
+          </div>
+          <div class="card review">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"It's not just content — it's a full strategy. That's what made the difference."</blockquote>
+          </div>
+          <div class="card review">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"I finally understand how LinkedIn actually works."</blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. FAQ ============ -->
+    <section class="audit faq">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">05 / Questions</span>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>Who is this service for?</summary>
+            <p>Anyone who wants to grow on LinkedIn, whether starting from zero or scaling their presence.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you create content for me?</summary>
+          </details>
+          <details class="faq-item">
+            <summary>How long does it take to see results?</summary>
+          </details>
+          <details class="faq-item">
+            <summary>Is this only for job seekers?</summary>
+          </details>
+          <details class="faq-item">
+            <summary>What makes this different?</summary>
+          </details>
+          <details class="faq-item">
+            <summary>Do I need prior experience on LinkedIn?</summary>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7. FOOTER CTA ============ -->
+    <section class="cta-footer" style="padding:48px 0;">
+      <div class="wrap">
+        <div class="cta-footer-row">
+          <div>
+            <h3>Building personal brands that stand out — not blend in.</h3>
+            <p>Have questions? Reach out anytime.</p>
+          </div>
+          <nav class="foot-links">
+            <a href="#top">Home</a>
+            <a href="#achievements">Services</a>
+            <a href="#audit">Book Audit</a>
+            <a href="#lead-form">Contact</a>
+          </nav>
+        </div>
+        <p class="copy">2026 All Rights Reserved. Built for those who are ready to be seen.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER BAR ============ -->
+  <footer class="site-foot">
+    <div class="wrap site-foot-row">
+      <a class="brand" href="#top">
+        <span class="brand-mark"><span></span></span>
+        ApexAuthority
+      </a>
+      <p class="copy-line">© 2025 ApexAuthority. Executive LinkedIn Growth &amp; Advisory.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Deployed Google Apps Script web app URL (Code.gs)
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwztMesgG0_i_yWrfg5115WTNFcywQL66ugmdBeojBoloOoJnCSI23Z5cCxu-jvpBOb/exec";
+
+    const form = document.getElementById("leadForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const formMsg = document.getElementById("formMsg");
+    const fieldName = document.getElementById("fieldName");
+    const fieldEmail = document.getElementById("fieldEmail");
+    const fieldPhone = document.getElementById("fieldPhone");
+
+    function showSuccess() {
+      formMsg.textContent = "Thanks! We'll be in touch shortly.";
+      formMsg.className = "form-msg ok";
+      form.reset();
+      submitBtn.disabled = false;
+    }
+
+    function showError() {
+      formMsg.textContent = "Something went wrong. Please try again.";
+      formMsg.className = "form-msg err";
+      submitBtn.disabled = false;
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = fieldName.value.trim();
+      const email = fieldEmail.value.trim();
+      const phone = fieldPhone.value.trim();
+
+      if (!name || !email || !phone) {
+        formMsg.textContent = "Please fill in all fields.";
+        formMsg.className = "form-msg err";
+        return;
+      }
+
+      submitBtn.disabled = true;
+      formMsg.textContent = "Sending...";
+      formMsg.className = "form-msg";
+
+      const url = SCRIPT_URL + "?" + new URLSearchParams({ name: name, email: email, phone: phone });
+
+      fetch(url, { method: "GET", mode: "no-cors" })
+        .then(() => showSuccess())
+        .catch(() => showError());
+    });
+  </script>
+</body>
+</html>
